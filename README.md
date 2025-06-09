@@ -7,5 +7,7 @@
 Abrir una consola de comandos y ejecutar el siguiente comando dentro de esta misma carpeta donde están los archivos html, css y js
 
 ```bash
-npx live-server --port=7777
+npm i # Solo una sola vez para instalar las dependencias
+# Para iniciar el servidor local
+nodemon server.js
 ```
