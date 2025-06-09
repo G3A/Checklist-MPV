@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist Markdown Interactivo</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+<body>
+
+<header>
+  <h1>📋 Checklist Interactivo con Markdown</h1>
+</header>
+
+<!-- Progreso (fijo a la derecha) -->
+<div id="progress-container">
+  <div id="progress-bar-container">
+    <div id="progress-bar"></div>
+  </div>
+  <div id="progress-number">0% completado</div>
+</div>
+
+<main>
+  <!-- Botón para activar/desactivar el editor -->
+  <div style="margin-top: 20px;">
+    <button id="toggle-editor-button">✏️ Crear/Editar checklist</button>
+  </div>
+
+
+
+  <!-- Editor de Markdown (oculto por defecto) -->
+  <div id="markdown-editor-container" style="display: none;">
+    <h3>📝 Editor de Markdown</h3>
+    <textarea id="markdown-editor" placeholder="Escribe o edita tu Markdown aquí..."></textarea>
+      <!-- Agregar un contenedor para el cuadro contextual de sugerencias -->
+    <div id="suggestion-box" style="display: none; position: absolute; background: white; border: 1px solid #ccc; border-radius: 5px; z-index: 1000; max-height: 150px; overflow-y: auto;"></div>
+
+    <button id="preview-markdown-button">Previsualizar Markdown</button>
+  </div>
+
+  <!-- Botón para alternar entre marcar y desmarcar todos los checkboxes -->
+  <div style="margin-top: 20px; text-align: right;">
+    <button id="select-all-button" style="
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s;
+    ">✔️ Marcar todo</button>
+  </div>
+
+  <!-- Contenedor principal del checklist -->
+  <div id="checklist"></div>
+
+  <!-- Botones de archivo -->
+  <div style="margin-top: 20px;">
+    <button id="search-button">📂 Cargar .md</button>
+    <div style="margin-top: 20px;">
+      <label for="filename-input">Nombre del archivo:</label>
+      <input id="filename-input" type="text" placeholder="checklist.md" />
+      <button id="download-button">💾 Descargar .md</button>
+    </div>
+  </div>
+
+  <!-- Botón para descargar el archivo renderizado -->
+  <div style="margin-top: 20px;">
+    <button id="download-rendered-button">💾 Descargar Renderizado</button>
+  </div>
+</main>
+
+<!-- Ícono de ayuda -->
+<div id="help-icon">❓</div>
+
+<!-- Popup de ayuda -->
+<div id="help-popup">
+  <h3>Ayuda: Cómo usar la aplicación</h3>
+  <p>
+    Esta aplicación te permite crear, editar y gestionar un checklist interactivo en formato Markdown. Aquí tienes un recorrido de usuario para entender cómo funciona:
+  </p>
+  <ol>
+    <li><strong>Crear un checklist desde cero:</strong> Haz clic en el botón <em>✏️ Editar checklist</em> para abrir el editor de Markdown. Escribe tu checklist en formato Markdown y haz clic en <em>Actualizar Checklist</em> para renderizarlo.</li>
+    <li><strong>Interactuar con el checklist:</strong> Marca o desmarca las casillas directamente en el área interactiva. El progreso se actualizará automáticamente.</li>
+    <li><strong>Cargar un archivo Markdown:</strong> Haz clic en <em>📂 Cargar .md</em> para cargar un archivo Markdown existente.</li>
+    <li><strong>Guardar el checklist:</strong> Haz clic en <em>💾 Descargar .md</em> para guardar el checklist como un archivo Markdown.</li>
+    <li><strong>Descargar el html renderizado:</strong> Haz clic en <em>💾 Descargar Renderizado</em> para guardar el checklist como un archivo html dinámico reutilizable.</li>
+  </ol>
+  <button id="close-help-button">Cerrar</button>
+</div>
+
+
+
+<!-- Librerías Markdown -->
+<script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/markdown-it-checkbox/dist/markdown-it-checkbox.min.js"></script>
+<script src="/scripts.js"></script>
+
+</body>
+</html>
